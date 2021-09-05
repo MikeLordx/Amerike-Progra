@@ -1,17 +1,18 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++.exe compilar archivo activo",
-            "command": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe",
+            "type": "shell",
+            "label": "build",
+            "command": "g++",
             "args": [
-                "-g",
-                "${file}",
+                "-std=c++17",
+                "-Iinclude",
+                "src/*.cc",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "bin/classes.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
@@ -20,7 +21,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarea generada por el depurador."
+            "detail": "compilador: g++"
         }
     ],
     "version": "2.0.0"
