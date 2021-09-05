@@ -11,19 +11,19 @@ job::~job()
 {
 }
 
-const char *job::GetName() const;
+const char *job::GetName() const
 {
     return name;
 }
-float job::GetSalary() const;
+float job::GetSalary() const
 {
     return salary;
 }
-JobArea job::GetJobArea() const;
+JobArea job::GetJobArea() const
 {
     return jobArea;
 }
-const char *job::GetJobAreaStr() const;
+const char *job::GetJobAreaStr() const
 {
     return jobArea == IT ? "IT" : jobArea == HR   ? "HR"
                               : jobArea == Sales  ? "Sales"

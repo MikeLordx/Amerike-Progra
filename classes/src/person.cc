@@ -1,7 +1,7 @@
 #include "person.hh"
 #include <iostream>
 
-person::person(unsigned int armsCount, std::string name, std::string job, Gender gender)
+person::person(unsigned int armsCount, std::string name, job *job, Gender gender)
 {
     this->armsCount = armsCount;
     this->name = name;
@@ -22,7 +22,7 @@ std::string person::GetName() const
 {
     return name;
 }
-std::string person::GetJob() const
+job person::GetJob() const
 {
     return job;
 }

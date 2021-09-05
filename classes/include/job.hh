@@ -6,7 +6,7 @@ class job
 private:
     const char *name;
     float salary;
-    JobArea jobArea { IT }
+    JobArea jobArea{IT};
 
 public:
     job(const char *name, float salary, JobArea jobArea);

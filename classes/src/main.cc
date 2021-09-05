@@ -3,7 +3,7 @@
 
 int main()
 {
-    person *person1{new person(2, "Miguel", "developer", none)};
+    person *person1{new person(2, "Miguel", new job("Developer", 15000.f, IT), none)};
 
     std::cout << person1->GetName() << std::endl;
     std::cout << person1->GetArmsCount() << std::endl;
