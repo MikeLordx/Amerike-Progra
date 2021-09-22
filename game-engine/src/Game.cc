@@ -1,10 +1,11 @@
 #include "CommonHeaders.hh"
 #include "Player.hh"
 
+TextObject *textObj1{new TextObject(ASSETS_FONT_ARCADECLASSIC, 14, sf::Color::White, sf::Text::Bold)};
 Rectangle *rectangle{new Rectangle(100, 100, 200, 100, sf::Color::Red)};
 sf::Clock *gameClock{new sf::Clock()};
 float deltaTime{};
-Player *player1{new Player("../assets/sprites.png", 4.f, 16, 16, 0, 5, 100, 25, 200.f)};
+Player *player1{new Player(ASSETS_SPRITES, 4.f, 16, 16, 0, 5, 100, 25, 200.f)};
 Animation *idleAnimation{new Animation()};
 Animation *runAnimation{new Animation()};
 
@@ -23,6 +24,7 @@ void Game::Start()
 {
   idleAnimation = new Animation(player1->GetSprite(), 0, 5, 0.05f, 5);
   runAnimation = new Animation(player1->GetSprite(), 0, 5, 0.08f, 6);
+  textObj1->SetTextStr("Hello game engine");
 }
 
 void Game::Initialize()
@@ -75,6 +77,7 @@ void Game::Render()
 //Drawing sprites or geometry.
 void Game::Draw()
 {
+  window->draw(*textObj1->GetText());
   window->draw(*player1->GetSprite());
 }
 
