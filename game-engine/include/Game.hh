@@ -1,16 +1,15 @@
 #pragma once
 
 #include<SFML/Graphics.hpp>
+#include "GameObject.hh"
 
 class Game
 {
 private:
   sf::RenderWindow* window{};
   sf::Event* event{};
-public:
-  Game();
-  ~Game();
-  void Initialize();
+
+
   void Update();
   void Render();
   void Input();
@@ -18,4 +17,13 @@ public:
   void Draw();
   void MainLoop();
   void Destroy();
+  void UpdatePhysics();
+public:
+  static std::vector<GameObject*>* gameObjects;
+
+  Game();
+  ~Game();
+  void Initialize();
+
+  static void AddGameObject(GameObject* gameObject);
 };
