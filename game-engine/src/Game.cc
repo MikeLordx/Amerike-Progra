@@ -13,6 +13,7 @@ float deltaTime{};
 Player* player1{};
 GameObject* chest1{};
 GameObject* light1{};
+GameObject* door1{};
 Animation* idleAnimation{new Animation()};
 Animation* runAnimation{new Animation()};
 
@@ -43,11 +44,14 @@ Game::Game()
   chest1->SetTagName("chest");
   light1 = new GameObject(ASSETS_SPRITES, 4.f, 16, 16, 6, 3, 500, 500, b2BodyType::b2_staticBody, world, window);
   light1->SetTagName("light");
+  door1 = new GameObject(ASSETS_SPRITES, 4.F, 16, 16, 0, 8, 400, 200, b2BodyType::b2_staticBody, world, window);
+  door1->SetTagName("door");
   tileGroup = new TileGroup(window, 12, 12, ASSETS_MAPS, 4.f, 16, 16, ASSETS_TILES);
 
   AddGameObject(player1);
   AddGameObject(chest1);
   AddGameObject(light1);
+  AddGameObject(door1);
 
   contactEventManager = new ContactEventManager(gameObjects);
 
