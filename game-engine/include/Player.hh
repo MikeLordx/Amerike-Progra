@@ -1,7 +1,7 @@
 #pragma once
 #include<SFML/Graphics.hpp>
-#include <string>
-#include <iostream>
+#include<string>
+#include<iostream>
 #include "Rigidbody.hh"
 #include "GameObject.hh"
 
@@ -21,5 +21,3 @@ public:
   void Update(float& deltaTime) override;
   void Draw() override;
 };
-
-

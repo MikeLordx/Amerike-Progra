@@ -2,9 +2,10 @@
 #include "GameObject.hh"
 #include<iostream>
 
-ContactEventManager::ContactEventManager(std::vector<GameObject*>*& gameObjects)
+ContactEventManager::ContactEventManager(std::vector<GameObject*>*& gameObjects, std::vector<GameObject*>*& gameObjectsDeleteList)
 {
   this->gameObjects = gameObjects;
+  this->gameObjectsDeleteList = gameObjectsDeleteList;
 }
 
 ContactEventManager::~ContactEventManager()
@@ -21,8 +22,11 @@ void ContactEventManager::BeginContact(b2Contact* contact)
     std::cout << "Collision: " << actorA->GetTagName() << ", " << actorB->GetTagName() << std::endl;
     if(actorB->GetTagName().compare("chest") == 0)
     {
-      gameObjects->erase(std::remove(gameObjects->begin(), gameObjects->end(), actorB), gameObjects->end());
-      delete actorB;
+      gameObjectsDeleteList->push_back(actorB);
+    }
+    if(actorB->GetTagName().compare("bomb") == 0)
+    {
+      gameObjectsDeleteList->push_back(actorA);
     }
   }
 }
